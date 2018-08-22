@@ -33,3 +33,9 @@ After data preprocessing, each subject in the study is associated with a csv fil
   This script helps to find the ROI features that have significant difference between two subject groups. It summarizes the brain ROI features for each group and performs t-test. The output is a single csv file (ROI_two_groups_summary.csv) with columns: ROI, Group_1 Mean, Group_1 Sd, Group_2 Mean, Group_2 Sd, T Value, P value. The rows of the table are sorted by the P value in ascending order. An example output is shown below:
   
   ![](https://github.com/CoshChen/Brain-MRI-Analysis/blob/master/Example_TTtestScript_Output.png)
+  
+  
+* ## DataLoader.py
+     For each group, the script removes columns that all values are NaN and fills the rest NaN values by column mean. Then the script combines records from all groups and produces a npz file that contains arrays X and y. Here X has shape [sample_size, feature_size] and y is the collection of labels of the same sample order as that in X.
+     
+* ## More Tools: PCA.py, SVM.py
