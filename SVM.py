@@ -40,7 +40,7 @@ mean_coef = np.mean(model_coef, axis=0)[0]
 row_list = []
 
 for idx in range(np.shape(mean_coef)[0]):
-    if mean_coef[idx] > 0:
+    if mean_coef[idx] != 0:
         row = OrderedDict()
         row['ROI'] = field_dict[idx]
         row['Mean Coef'] = mean_coef[idx]
