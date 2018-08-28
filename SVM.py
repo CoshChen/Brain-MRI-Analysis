@@ -44,12 +44,13 @@ for idx in range(np.shape(mean_coef)[0]):
         row = OrderedDict()
         row['ROI'] = field_dict[idx]
         row['Mean Coef'] = mean_coef[idx]
+        row['abs Mean Coef'] = abs(mean_coef[idx])
         row_list.append(row)
 
 print()        
 print(confusion_matrix(pred_y, y))
 
-pd.DataFrame(row_list).sort_values(by=['Mean Coef'], ascending=False).to_csv('./SVM_'+str(c)+'.csv', index=False)
+pd.DataFrame(row_list).sort_values(by=['abs Mean Coef'], ascending=False).drop(columns=['abs Mean Coef']).to_csv('./SVM_'+str(c)+'.csv', index=False)
 
 
 
